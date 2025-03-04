@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] bool[] activeTargets;
-    [SerializeField] GameObjects[] possibleTargets;
+    [SerializeField] GameObject[] possibleTargets;
     [SerializeField] int howManyActiveAtOnce;
     [SerializeField] int howManyDesiredActive;
 
@@ -15,16 +15,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        howManyAreActive()
+        howManyAreActive();
     }
 
     private int howManyAreActive()
     {
-        foreach(bool boolean in activeTargets)
+        foreach (bool boolean in activeTargets)
         {
-            if (boolean){howManyActiveAtOnce++}
+            if (boolean) { howManyActiveAtOnce++; }
         }
-        return howManyDesiredActive - howManyActiveCurrently;
+        return howManyDesiredActive - howManyActiveAtOnce;
     }
 
 }
